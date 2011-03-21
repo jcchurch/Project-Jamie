@@ -1,0 +1,1 @@
+/home/user *(rw,sync,fsid=42,no_root_squash,subtree_check)

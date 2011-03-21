@@ -1,0 +1,29 @@
+#!/bin/sh
+
+ip=`ifconfig eth0 | grep "inet addr" | cut -d":" -f 2 | awk '{print $1}'`
+
+case "$1" in
+    master)
+        echo "This computer's IP address is $ip"
+        echo $ip > /home/user/nodes
+    ;;
+    slave)
+        master=$2
+        ssh $master "echo $ip >> /home/user/nodes"
+        sudo mount -t nfs $master:/home/user /home/user
+        echo "The node is ready."
+    ;;
+    help)
+        echo "This script helps to configure the cluster."
+        echo
+        echo "To make this computer the master, type: $0 master"
+        echo "The program should report to you this computer's IP address."
+        echo "Write it down. You'll need it to configure the slaves."
+        echo
+        echo "To make this computer a slave, type: $0 slave [IP ADDRESS]"
+        echo "The program should tell you that the node is ready."
+    ;;
+    *)  
+        $0 help
+    ;;
+esac

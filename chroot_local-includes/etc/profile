@@ -1,0 +1,26 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/mpi/bin"
+
+if [ "$PS1" ]; then
+  if [ "$BASH" ]; then
+    PS1='\u@\h:\w\$ '
+  else
+    if [ "`id -u`" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+
+export PATH
+
+C_INCLUDE_PATH="/usr/lib/mpi/include"
+export C_INCLUDE_PATH
+
+alias listnodes='mpiexec -f /home/user/nodes grep "^model name" /proc/cpuinfo'
+alias linpack='cd /usr/local/bin; mpiexec -f /home/user/nodes xhpl; cd -'
+
+umask 022

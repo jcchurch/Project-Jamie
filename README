@@ -1,0 +1,79 @@
+Hello. This is Project Jamie.
+
+This distribution of Linux allows people to quickly convert a
+heterogeneous collection of machines into a cluster computer.
+Since this distro is also a Live CD, there is no software to
+install.
+
+The latest version is called "Outerz0ne 7 Build"
+(since this was the most recent conference to share this work.)
+
+March 20, 2011
+
+===================================
+For the rushed:
+===================================
+
+- sudo apt-get install live-helper qemu cdrecord
+- sudo sh hpc.sh
+- (Stick a CD into the computer.)
+- cdrecord -v -eject livecd/binary.iso # Repeat this step multiple times.
+- Boot each computer in your new cluster using the Project Jamie Live CD.
+- Run the command "configurejamie master" on the desired master node. Note the IP address.
+- Run the command "configurejamie slave IP_ADDRESS" on each of the slave nodes.
+
+===================================
+How to build and execute the project:
+===================================
+
+Step 0: Preparing to build the project.
+
+Required elements for this project:
+(i.e. Better get these programs before you begin)
+
+ - Debian Live Magic
+ - cdrecord (For burning the ISO to a CD)
+ - qemu (For running the ISO in a virtual machine.)
+ - An Internet Connection
+ - About 5-30 minutes depending on your Internet connection.
+
+To get everything in one step:
+
+$ sudo apt-get install live-helper qemu cdrecord
+
+Step 1: Build the project.
+
+Our build script is called "hpc.sh". To execute it, run this command:
+
+$ sudo sh hpc.sh
+
+Step 2: Burn the iso and boot the Live CD --OR-- Launch the distro as a virtual machine.
+
+To burn the ISO:
+
+$ cdrecord -v -eject livecd/binary.iso
+
+To launch the ISO as a virtual machine:
+
+$ sudo sh letsgo.sh 46
+
+(Here, the 46 represents the last two digits of the MAC address. Each MAC address must be different.)
+
+Step 3: Configure the cluster.
+
+For each computer (or virtual machine), pick one to be the master node. Run this command on that machine:
+
+$ configurejamie master
+
+This should report on the screen the IP address. Write this down. On each of the slaves, run this command:
+
+$ configurejamie slave IP_ADDRESS_OF_MASTER
+
+You now have a super computer.
+
+===================================
+CONTRIBUTORS
+===================================
+
+James Church (@jcchurch on twitter)
+John Stitt (@jmstitt on twitter)
