@@ -1,13 +1,23 @@
 #!/bin/sh
 
-# argv should be 56 or 57
+LAST_ELEM=$1
 
-ARGS="-boot d -cdrom livecd/binary.iso -net nic,vlan=0,macaddr=52:54:00:12:34:$1 -net tap,vlan=0,script=/etc/qemu-ifup -m 256 -localtime"
-# ARGS="-boot d -cdrom livecd/binary.iso -net nic,vlan=0 -net tap,vlan=0,script=/etc/qemu-ifup,macaddr=52:54:00:12:34:$1 -m 256 -localtime"
+if [ $# -ne 1 ]
+then
+    LAST_ELEM=46
+    echo "Each machine needs to have a different MAC address to have a unique IP address"
+    echo "By default, the script uses '46' as this argument. For subsequent virtual"
+    echo "machines, use '47' for the second, '48' for the third, etc. For example:"
+    echo
+    echo "sudo sh $0 47"
+    echo
+    echo "If they all run with the same MAC address, each machine will have the same IP"
+    echo "address and the proof of concept will not work."
+    echo
+    echo
+fi
 
-#echo "Loading kqemu kernel module..."
-#sudo modprobe kqemu
-#echo "...."
+ARGS="-boot d -cdrom livecd/binary.iso -net nic,vlan=0,macaddr=52:54:00:12:34:$LAST_ELEM -net tap,vlan=0,script=/etc/qemu-ifup -m 256 -localtime"
 
 echo "Starting QEMU with..."
 echo $ARGS
