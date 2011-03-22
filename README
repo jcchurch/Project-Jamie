@@ -3,10 +3,17 @@ Hello. This is Project Jamie.
 This distribution of Linux allows people to quickly convert a
 heterogeneous collection of machines into a cluster computer.
 Since this distro is also a Live CD, there is no software to
-install.
+install on the cluster nodes.
 
 The latest version is called "Outerz0ne 7 Build"
-(since this was the most recent conference to share this work.)
+(since this was the most recent conference where this work was
+demonstrated.)
+
+Note: This distro is preconfigured with SSH keys so that any
+copy of the distro can immediately reach any other copy of
+this distro without the need for a password. This is an open
+security door, which means you should run your cluster behind
+a firewall. You have been warned.
 
 March 20, 2011
 
