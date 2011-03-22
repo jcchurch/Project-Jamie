@@ -1,0 +1,59 @@
+                        ***************************************
+                        ***************************************
+                        ** Project Jamie - Quick Start Guide **
+                        ***************************************
+                        ***************************************
+
+        Welcome to Project Jamie, and thank you for trying out our distribution.  Currently,
+we're in a pre-alpha release stage, and we're often adding new features and improving old
+ones.  This guide is intended to be a short "quick start guide" and is by no means a complete
+documentation.
+
+In this guide we'll quickly cover a few simple topics:
+
+        - Setting up your cluster
+        - Compiling and running your first MPI program
+        - Running a benchmark on your cluster using John the Ripper MPI
+
+***************************
+***************************
+**Setting Up Your Cluster**
+***************************
+
+        After booting all of your nodes, you will find yourself on each node in the home directory,
+just as you would in other linux distributions.  Setting up your master nodes and slave nodes is a
+simple and painless process where you will pass arguments to a single script called "configurejamie."
+
+
+**Configuring the Master Node** 
+
+        The first thing you will need to decide is which node you would like to be your master, node.  
+For simplicity's sake, you may find it easiest to choose the most powerful node at your disposal.
+
+        Once you have chosen a node to be the master, you will type the following command:
+        
+                configurejamie master
+
+        This command will add the master to the "nodes" list, and it will print the ip address of
+the node to the screen. This address is important for setting up the slave nodes.  The command should
+finish quickly.  Assuming all went well, congratulations, you've just set up your first node!
+
+
+**Configuring the Slave Nodes**
+
+        After the configuration of the master/head node is complete, setting up the slaves is easy as
+well.  Using the IP address that the master node configuration told you, run this command:
+
+                configurejamie slave [ip address of master]
+                
+        This will ssh into the master node, append the slave's ip address to the nodes list, and mount
+the master's home directory as an nfs drive.  You'll receive a message stating that the node is ready
+after all of these tasks are done.
+
+
+************************************************
+************************************************
+**Compiling and Running Your First MPI Program**
+************************************************
+
+        
