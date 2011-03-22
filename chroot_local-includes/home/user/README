@@ -20,35 +20,46 @@ In this guide we'll quickly cover a few simple topics:
 **Setting Up Your Cluster**
 ***************************
 
-        After booting all of your nodes, you will find yourself on each node in the home directory,
-just as you would in other linux distributions.  Setting up your master nodes and slave nodes is a
-simple and painless process where you will pass arguments to a single script called "configurejamie."
+        After booting all of your nodes, you will find yourself on each node in the home 
+directory, just as you would in other linux distributions.  Setting up your master nodes 
+and slave nodes is a simple and painless process where you will pass arguments to a single 
+script called "configurejamie."
 
 
-**Configuring the Master Node** 
+** Configuring the Master Node ** 
 
-        The first thing you will need to decide is which node you would like to be your master, node.  
-For simplicity's sake, you may find it easiest to choose the most powerful node at your disposal.
+        The first thing you will need to decide is which node you would like to be your 
+master, node.  For simplicity's sake, you may find it easiest to choose the most powerful 
+node at your disposal.
 
         Once you have chosen a node to be the master, you will type the following command:
         
                 configurejamie master
 
-        This command will add the master to the "nodes" list, and it will print the ip address of
-the node to the screen. This address is important for setting up the slave nodes.  The command should
-finish quickly.  Assuming all went well, congratulations, you've just set up your first node!
+        This command will add the master to the "nodes" list, and it will print the ip address 
+of the node to the screen. This address is important for setting up the slave nodes.  The 
+command should finish quickly.  Assuming all went well, congratulations, you've just set up your
+first node!
 
 
-**Configuring the Slave Nodes**
+** Configuring the Slave Nodes **
 
-        After the configuration of the master/head node is complete, setting up the slaves is easy as
-well.  Using the IP address that the master node configuration told you, run this command:
+        After the configuration of the master/head node is complete, setting up the slaves is 
+easy as well.  Using the IP address that the master node configuration told you, you run:
 
-                configurejamie slave [ip address of master]
+                configurejamie slave IP_ADDRESS_OF_MASTER
                 
-        This will ssh into the master node, append the slave's ip address to the nodes list, and mount
-the master's home directory as an nfs drive.  You'll receive a message stating that the node is ready
-after all of these tasks are done.
+        This will ssh into the master node, append the slave's ip address to the nodes list, and 
+mount the master's home directory as an nfs drive.  You'll receive a message stating that the 
+node is ready after all of these tasks are done.
+
+** Testing Your Configuration **
+
+	Another simple command is provided for you to allow for quick testing of your cluster.
+This command will simply list all of the processors on all the nodes of your cluster. In order
+to do this, you simply run the following command on your master node:
+
+		listnodes
 
 
 ************************************************
@@ -56,4 +67,28 @@ after all of these tasks are done.
 **Compiling and Running Your First MPI Program**
 ************************************************
 
-        
+        Included in the home directory of each node is a file called "hello.c".  This file
+contains the code for a simple "Hello, World" program that will utilize mpi. The following command
+will compile the code:
+		
+		mpicc hello.c -o hello
+
+	To run the program after compiling, you run:
+
+		mpiexec -f nodes -np NUMBER_OF_PROCESSES ./hello
+
+	Assuming everything goes as planned, you've just compiled and run your first MPI program!
+
+
+*****************************************
+*****************************************
+**Benchmarking With John the Ripper MPI**
+*****************************************
+
+	A program included in the distribution is John the Ripper (JtR) patched to utilize MPI.
+JtR is a program that allows for brute-forcing of password hashes.  One feature of JtR is it's
+usefulness as a benchmark.  JtR sees very linear increases in speed as more nodes are added to
+the cluster, so the benchmark is only good for other processor dependent programs. Run the
+following command to benchmark your cluster with JtR:
+
+		mpiexec -f nodes -np NUMBER_OF_PROCESSES john -test
