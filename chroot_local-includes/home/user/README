@@ -45,7 +45,7 @@ first node!
 ** Configuring the Slave Nodes **
 
         After the configuration of the master/head node is complete, setting up the slaves is 
-easy as well.  Using the IP address that the master node configuration told you, you run:
+easy as well.  Run the following command, replacing IP_ADDRESS_OF_MASTER with the correct IP address:
 
                 configurejamie slave IP_ADDRESS_OF_MASTER
                 
@@ -73,7 +73,8 @@ will compile the code:
 		
 		mpicc hello.c -o hello
 
-	To run the program after compiling, you run:
+	To run the program after compiling, run the following, replacing NUMBER_OF_PROCESSES with
+the desired number of processes:
 
 		mpiexec -f nodes -np NUMBER_OF_PROCESSES ./hello
 
@@ -89,6 +90,7 @@ will compile the code:
 JtR is a program that allows for brute-forcing of password hashes.  One feature of JtR is it's
 usefulness as a benchmark.  JtR sees very linear increases in speed as more nodes are added to
 the cluster, so the benchmark is only good for other processor dependent programs. Run the
-following command to benchmark your cluster with JtR:
+following command to benchmark your cluster with JtR, replacing NUMBER_OF_PROCESSES with the
+desired number of processes:
 
 		mpiexec -f nodes -np NUMBER_OF_PROCESSES john -test
