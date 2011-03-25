@@ -22,7 +22,7 @@ For the rushed:
 ===================================
 
 - sudo apt-get install live-helper qemu cdrecord
-- sudo sh hpc.sh
+- make
 - (Stick a CD into the computer.)
 - cdrecord -v -eject livecd/binary.iso # Repeat this step multiple times.
 - Boot each computer in your new cluster using the Project Jamie Live CD.
@@ -50,9 +50,9 @@ $ sudo apt-get install live-helper qemu cdrecord
 
 Step 1: Build the project.
 
-Our build script is called "hpc.sh". To execute it, run this command:
+Our build script is Makefile. To execute it, run this command:
 
-$ sudo sh hpc.sh
+$ make
 
 Step 2: Burn the iso and boot the Live CD --OR-- Launch the distro as a virtual machine.
 
@@ -62,7 +62,7 @@ $ cdrecord -v -eject livecd/binary.iso
 
 To launch the ISO as a virtual machine:
 
-$ sudo sh letsgo.sh 46
+$ sudo sh runNodeInQEMU.sh 46
 
 (Here, the 46 represents the last two digits of the MAC address. Each MAC address must be different.)
 
