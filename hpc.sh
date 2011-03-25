@@ -17,7 +17,7 @@ lh clean
      #The next two lines ("-a" and "-k") instruct to build a 32-bit iso.
      #"--hostname" sets the hostname to be used on the build.
 lh config \
-    --packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync" \
+    --packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev mpichpython" \
     --binary-indices none \
     -a 'i386' \
     -k '686' \
