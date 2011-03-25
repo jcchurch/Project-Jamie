@@ -7,7 +7,11 @@ SUDO = sudo
 all: build
 
 clean:
+<<<<<<< HEAD:Makefile
 	-cd $(LIVECD_DIR) ; $(SUDO) $(LH_CLEAN)
+=======
+	-$(SUDO) rm -rf $(LIVECD_DIR)
+>>>>>>> 3d0eb633d54e4228fdce01a7000bdf7943e3b4b5:Makefile
 
 build: clean
 	#Remake the build directory and change to it.
@@ -19,11 +23,12 @@ build: clean
 	#"--hostname" sets the hostname to be used on the build.
 	cd $(LIVECD_DIR) ; \
 	$(SUDO) $(LH_CONFIG) \
-    --packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev mpichpython" \
-    --binary-indices none \
-    -a 'i386' \
-    -k '686' \
-    --hostname aeschylus
+	--packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev mpichpython" \
+	--binary-indices none \
+	-a 'i386' \
+	-k '686' \
+	-syslinux-timeout 10 \
+	--hostname aeschylus
 	#Copy files from chroot-locale-includes into the config directory
 	#to be included in the build
 	$(SUDO) cp -r chroot_local-includes/ $(LIVECD_DIR)/config/
