@@ -7,9 +7,7 @@ SUDO = sudo
 all: build
 
 clean:
-	-cd $(LIVECD_DIR)
-	#Clean up system build directories.
-	-$(SUDO) $(LH_CLEAN)
+	-cd $(LIVECD_DIR) ; $(SUDO) $(LH_CLEAN)
 
 build: clean
 	#Remake the build directory and change to it.
