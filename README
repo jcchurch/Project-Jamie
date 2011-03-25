@@ -50,7 +50,7 @@ $ sudo apt-get install live-helper qemu cdrecord
 
 Step 1: Build the project.
 
-Our build script is Makefile. To execute it, run this command:
+Our build script is a Makefile. To execute it, run this command:
 
 $ make
 
