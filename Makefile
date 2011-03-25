@@ -1,7 +1,7 @@
 LIVECD_DIR = livecd
-LH_CONFIG = lh_config
-LH_CLEAN = lh_clean
-LH_BUILD = lh_build
+LH_CONFIG = lh config
+LH_CLEAN = lh clean
+LH_BUILD = lh build
 SUDO = sudo
 
 all: build
