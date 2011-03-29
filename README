@@ -15,7 +15,7 @@ this distro without the need for a password. This is an open
 security door, which means you should run your cluster behind
 a firewall. You have been warned.
 
-March 20, 2011
+March 29, 2011
 
 ===================================
 For the rushed:
@@ -76,7 +76,7 @@ This should report on the screen the IP address. Write this down. On each of the
 
 $ configurejamie slave IP_ADDRESS_OF_MASTER
 
-You now have a super computer.
+You now have a cluster computer.
 
 ===================================
 CONTRIBUTORS
@@ -84,3 +84,4 @@ CONTRIBUTORS
 
 James Church (@jcchurch on twitter)
 John Stitt (@jmstitt on twitter)
+Alex Conrey (@ajwak95 on twitter)
