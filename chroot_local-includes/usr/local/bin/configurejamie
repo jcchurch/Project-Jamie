@@ -7,7 +7,7 @@ case "$1" in
         echo "This computer's IP address is $ip"
         echo $ip > /home/user/nodes
     ;;
-    slave)
+    worker)
         master=$2
         ssh $master "echo $ip >> /home/user/nodes"
         sudo mount -t nfs $master:/home/user /home/user
@@ -18,9 +18,9 @@ case "$1" in
         echo
         echo "To make this computer the master, type: $0 master"
         echo "The program should report to you this computer's IP address."
-        echo "Write it down. You'll need it to configure the slaves."
+        echo "Write it down. You'll need it to configure the workers."
         echo
-        echo "To make this computer a slave, type: $0 slave [IP ADDRESS]"
+        echo "To make this computer a worker, type: $0 worker [IP ADDRESS]"
         echo "The program should tell you that the node is ready."
     ;;
     *)  
