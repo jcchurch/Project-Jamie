@@ -22,7 +22,7 @@ In this guide we'll quickly cover a few simple topics:
 
         After booting all of your nodes, you will find yourself on each node in the home 
 directory, just as you would in other linux distributions.  Setting up your master nodes 
-and slave nodes is a simple and painless process where you will pass arguments to a single 
+and worker nodes is a simple and painless process where you will pass arguments to a single 
 script called "configurejamie."
 
 
@@ -37,19 +37,19 @@ node at your disposal.
                 configurejamie master
 
         This command will add the master to the "nodes" list, and it will print the ip address 
-of the node to the screen. This address is important for setting up the slave nodes.  The 
+of the node to the screen. This address is important for setting up the worker nodes.  The 
 command should finish quickly.  Assuming all went well, congratulations, you've just set up your
 first node!
 
 
-** Configuring the Slave Nodes **
+** Configuring the Worker Nodes **
 
-        After the configuration of the master/head node is complete, setting up the slaves is 
+        After the configuration of the master/head node is complete, setting up the workers is 
 easy as well.  Run the following command, replacing IP_ADDRESS_OF_MASTER with the correct IP address:
 
-                configurejamie slave IP_ADDRESS_OF_MASTER
+                configurejamie worker IP_ADDRESS_OF_MASTER
                 
-        This will ssh into the master node, append the slave's ip address to the nodes list, and 
+        This will ssh into the master node, append the worker's ip address to the nodes list, and 
 mount the master's home directory as an nfs drive.  You'll receive a message stating that the 
 node is ready after all of these tasks are done.
 
