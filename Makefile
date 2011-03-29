@@ -1,7 +1,7 @@
 LIVECD_DIR = livecd
-LH_CONFIG = lh config
-LH_CLEAN = lh clean
-LH_BUILD = lh build
+LH_CONFIG = lh_config
+LH_CLEAN = lh_clean
+LH_BUILD = lh_build
 SUDO = sudo
 
 all: build
@@ -19,7 +19,7 @@ build: clean
 	#"--hostname" sets the hostname to be used on the build.
 	cd $(LIVECD_DIR) ; \
 	$(SUDO) $(LH_CONFIG) \
-	--packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev mpichpython" \
+	--packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev python-dev" \
 	--binary-indices none \
 	-a 'i386' \
 	-k '686' \
