@@ -27,7 +27,7 @@ For the rushed:
 - cdrecord -v -eject livecd/binary.iso # Repeat this step multiple times.
 - Boot each computer in your new cluster using the Project Jamie Live CD.
 - Run the command "configurejamie master" on the desired master node. Note the IP address.
-- Run the command "configurejamie slave IP_ADDRESS" on each of the slave nodes.
+- Run the command "configurejamie worker IP_ADDRESS" on each of the worker nodes.
 
 ===================================
 How to build and execute the project:
@@ -72,9 +72,9 @@ For each computer (or virtual machine), pick one to be the master node. Run this
 
 $ configurejamie master
 
-This should report on the screen the IP address. Write this down. On each of the slaves, run this command:
+This should report on the screen the IP address. Write this down. On each of the workers, run this command:
 
-$ configurejamie slave IP_ADDRESS_OF_MASTER
+$ configurejamie worker IP_ADDRESS_OF_MASTER
 
 You now have a cluster computer.
 
