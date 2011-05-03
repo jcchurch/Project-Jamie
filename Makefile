@@ -41,7 +41,7 @@ build: clean
 	-k '686' \
 	--syslinux-timeout 10 \
 	--hostname aeschylus
-	#Copy files from chroot-locale-includes into the config directory
+	#Copy files from chroot_local-includes into the config directory
 	#to be included in the build
 	$(SUDO) cp -r chroot_local-includes/ $(LIVECD_DIR)/config/
 	#Run the build
