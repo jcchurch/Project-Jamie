@@ -1,0 +1,4 @@
+- Set up ssh keys on the fly when starting the cluster
+- Custom boot picture
+- MPIBzip2
+- Give each node a unique hostname when starting the cluster
