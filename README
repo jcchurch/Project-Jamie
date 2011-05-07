@@ -2,29 +2,6 @@ Hello. This is Project Jamie.
 
 ==========================================================================
 
-LICENSE
-
-#   Project Jamie is free software: you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation, either version 3 of the License, or
-#   (at your option) any later version.
-
-#   Project Jamie is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
-
-#   You should have received a copy of the GNU General Public License
-#   along with Project Jamie.  If not, see <http://www.gnu.org/licenses/>.
-
-All code specific to Project Jamie is licensed under the GPL, and 
-you are free to do with it whatever you'd like under the terms of
-that license.  Code that is included but was not made by the Project
-Jamie team for the purposes of the project is licensed by its creators
-under the licenses that they have chosen.
-
-==========================================================================
-
 DESCRIPTION
 
 This distribution of Linux allows people to quickly convert a
@@ -112,3 +89,28 @@ CONTRIBUTORS
 James Church (@jcchurch on twitter)
 John Stitt (@jmstitt on twitter)
 Alex Conrey (@alexconrey on twitter)
+
+
+==========================================================================
+
+LICENSE
+
+#   Project Jamie is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+
+#   Project Jamie is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+
+#   You should have received a copy of the GNU General Public License
+#   along with Project Jamie.  If not, see <http://www.gnu.org/licenses/>.
+
+All code specific to Project Jamie is licensed under the GPL, and 
+you are free to do with it whatever you'd like under the terms of
+that license.  Code that is included but was not made by the Project
+Jamie team for the purposes of the project is licensed by its creators
+under the licenses that they have chosen.
+
