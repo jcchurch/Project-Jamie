@@ -39,7 +39,7 @@ build: clean
 	-a 'i386' \
 	-k '686' \
 	--syslinux-timeout 10 \
-	--hostname aeschylus
+	--hostname jamie
 	#Copy files from chroot_local-includes into the config directory
 	#to be included in the build
 	$(SUDO) cp -r chroot_local-includes/ $(LIVECD_DIR)/config/
