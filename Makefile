@@ -34,7 +34,7 @@ build: clean
 	#"--hostname" sets the hostname to be used on the build.
 	cd $(LIVECD_DIR) ; \
 	$(SUDO) $(LH_CONFIG) \
-	--packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev python-dev" \
+	--packages "rsh-server update-cluster openssh-server gcc gfortran sl unison build-essential nfs-kernel-server host john elinks libblas-dev python less gzip rsync libbz2-dev python-dev htop" \
 	--binary-indices none \
 	-a 'i386' \
 	-k '686' \
